@@ -16,17 +16,21 @@ public class Practice15FillPathView extends View {
     Path path2 = new Path();
     Path path3 = new Path();
 
+
     public Practice15FillPathView(Context context) {
         super(context);
     }
+
 
     public Practice15FillPathView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
+
     public Practice15FillPathView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
 
     {
         path.moveTo(50, 100);
@@ -39,6 +43,7 @@ public class Practice15FillPathView extends View {
         pathPaint.setStyle(Paint.Style.STROKE);
     }
 
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -49,7 +54,7 @@ public class Practice15FillPathView extends View {
         paint.setStrokeWidth(0);
         // 第一处：获取 Path
         canvas.drawPath(path, paint);
-
+        paint.getFillPath(path, path1);
         canvas.save();
         canvas.translate(500, 0);
         canvas.drawPath(path1, pathPaint);
@@ -61,7 +66,7 @@ public class Practice15FillPathView extends View {
         // 第二处：设置 Style 为 STROKE 后再获取 Path
         canvas.drawPath(path, paint);
         canvas.restore();
-
+        paint.getFillPath(path, path2);
         canvas.save();
         canvas.translate(500, 200);
         canvas.drawPath(path2, pathPaint);
@@ -73,7 +78,7 @@ public class Practice15FillPathView extends View {
         // 第三处：Style 为 STROKE 并且线条宽度为 40 时的 Path
         canvas.drawPath(path, paint);
         canvas.restore();
-
+        paint.getFillPath(path, path3);
         canvas.save();
         canvas.translate(500, 400);
         canvas.drawPath(path3, pathPaint);
